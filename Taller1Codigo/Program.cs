@@ -2,11 +2,13 @@
 
 namespace Taller1Codigo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Aplicacion aplicacion = new Aplicacion();
+            aplicacion.EnviarMensaje();
+            Console.ReadLine();
         }
     }
 }
