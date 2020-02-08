@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using Taller1Codigo.Cuentas;
 
 namespace Taller1Codigo
 {
     public class Notificador
     {
-        public List<string> Correos { get; set; }
+        public List<ICuenta> Cuentas { get; set; }
 
-        public Notificador(List<string> pCorreos)
+        public Notificador(List<ICuenta> pCuentas)
         {
-            Correos = pCorreos;
+            Cuentas = pCuentas;
         }
 
         public void enviar(string mensaje)
         {
-            foreach (var correoi in Correos)
+            foreach (var cuentai in Cuentas)
             {
-                Console.WriteLine($"Enviando mensaje a {correoi} : {mensaje}");
+                        cuentai.enviar(mensaje);
             }
         }
     }

@@ -1,31 +1,27 @@
 ﻿using System.Collections.Generic;
+using Taller1Codigo.Cuentas;
 
 namespace Taller1Codigo
 {
-    public class Aplicacion
-    {
-        public Notificador MiNotificador { get; set; }
-        public List<string> Correos { get; set; }
+      public class Aplicacion
+      {
+            public Notificador MiNotificador { get; set; }
+            public List<ICuenta> Cuentas { get; set; }
 
-        public Aplicacion()
-        {
-            Correos = new List<string>
+            public Aplicacion(List<ICuenta> pcuentas)
             {
-                "santivasquez1@gmail.com",
-                "betomm@gmail.com ",
-                "fsalazarpaardo@gmail.com"
-            };
-            SetNotificador(Correos);
-        }
+                  Cuentas = pcuentas;
+                  SetNotificador(Cuentas);
+            }
 
-        public void SetNotificador(List<string> pcorreos)
-        {
-            MiNotificador = new Notificador(pcorreos);
-        }
+            public void SetNotificador(List<ICuenta> cuentas)
+            {
+                  MiNotificador = new Notificador(cuentas);
+            }
 
-        public void EnviarMensaje()
-        {
-            MiNotificador.enviar("Alerta");
-        }
-    }
+            public void EnviarMensaje()
+            {
+                  MiNotificador.enviar("Alerta");
+            }
+      }
 }
