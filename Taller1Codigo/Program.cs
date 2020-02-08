@@ -7,13 +7,15 @@ namespace Taller1Codigo
 {
       internal class Program
       {
+            public static Aplicacion aplicacion = null;
+
             private static void Main(string[] args)
             {
                   List<ICuenta> CuentasCorreos = new FabricaCuentasCorreo().CuentasCorreos;
                   List<ICuenta> CuentasFacebook = new FabricaCuentasFacebook().CuentaFacebooks;
                   List<ICuenta> CuentasSmS = new FabricaCuentasSMS().CuentaSMSS;
 
-                  Aplicacion aplicacion = new Aplicacion(CuentasCorreos);
+                  aplicacion = new Aplicacion(CuentasCorreos);
                   aplicacion.EnviarMensaje();
                   Console.WriteLine("------------");
 
