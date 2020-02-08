@@ -1,6 +1,6 @@
 namespace Taller1Codigo.Cuentas
 {
-    public interface ICuenta
+    public interface INotificacion
     {
          void enviar(string mensaje);
     }

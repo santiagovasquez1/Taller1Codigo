@@ -2,18 +2,16 @@ using System;
 
 namespace Taller1Codigo.Cuentas
 {
-    public class CuentaCorreo : ICuenta
+    public class NotificacionCorreo : INotificacion
     {
-        public string NombreCuenta { get; set; }
         public string DirCorreo { get; set; }
 
-        public CuentaCorreo(string nombreCuenta, string dirCorreo)
+        public NotificacionCorreo ( string dirCorreo )
         {
-            NombreCuenta = nombreCuenta;
             DirCorreo = dirCorreo;
         }
 
-        public void enviar(string mensaje)
+        public void enviar ( string mensaje )
         {
             string formato = $"Enviando a {DirCorreo} : ";
             Console.WriteLine(formato + mensaje);

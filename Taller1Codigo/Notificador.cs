@@ -6,9 +6,9 @@ namespace Taller1Codigo
 {
     public class Notificador
     {
-        public List<ICuenta> Cuentas { get; set; }
+        public List<INotificacion> Cuentas { get; set; }
 
-        public Notificador(List<ICuenta> pCuentas)
+        public Notificador(List<INotificacion> pCuentas)
         {
             Cuentas = pCuentas;
         }

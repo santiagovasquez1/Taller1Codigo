@@ -1,33 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Taller1Codigo.Cuentas;
-using Taller1Codigo.FabricaCuentas;
 
 namespace Taller1Codigo
 {
-      internal class Program
-      {
-            public static Aplicacion aplicacion = null;
+    internal class Program
+    {
+        public static Aplicacion aplicacion = null;
+        public static List<Usuario> BaseUsuarios = new List<Usuario>();
 
-            private static void Main(string[] args)
+        private static void Main ( string[] args )
+        {
+            string[] NombreUsuarios = {"Santiago Vasquez",
+                                                               "Luis Alberto Marin",
+                                                                "Fabio Salazar"};
+
+            List<INotificacion> notificacionesSantiago = new List<INotificacion>()
             {
-                  List<ICuenta> CuentasCorreos = new FabricaCuentasCorreo().CuentasCorreos;
-                  List<ICuenta> CuentasFacebook = new FabricaCuentasFacebook().CuentaFacebooks;
-                  List<ICuenta> CuentasSmS = new FabricaCuentasSMS().CuentaSMSS;
+                new NotificacionCorreo("santivasquez1@gmail.com"),
+                new NotificacionFacebook("www.facebook/santiagovasquez.com"),
+                new NotificacionSMS("310 4509399")
+            };
 
-                  aplicacion = new Aplicacion(CuentasCorreos);
-                  aplicacion.EnviarMensaje();
-                  Console.WriteLine("------------");
+            List<INotificacion> notificacionesLuis = new List<INotificacion>()
+            {
+                new NotificacionFacebook("betomm@gmail.com "),
+                new NotificacionSMS("311 7609582")
+            };
 
-                  aplicacion = new Aplicacion(CuentasFacebook);
-                  aplicacion.EnviarMensaje();
-                  Console.WriteLine("------------");
+            List<INotificacion> notificacionesFabio = new List<INotificacion>(){
+                new NotificacionSMS("310 3934690")
+            };
 
-                  aplicacion = new Aplicacion(CuentasSmS);
-                  aplicacion.EnviarMensaje();
-                  Console.WriteLine("------------");
+            foreach ( var Nombre in NombreUsuarios )
+            {
+                if ( Nombre == "Santiago Vasquez" )
+                {
+                    CrearUsuario(Nombre , notificacionesSantiago);
+                }
 
-                  Console.ReadLine();
+                if ( Nombre == "Luis Alberto Marin" )
+                {
+                    CrearUsuario(Nombre , notificacionesLuis);
+                }
+
+                if ( Nombre == "Fabio Salazar" )
+                {
+                    CrearUsuario(Nombre , notificacionesFabio);
+                }
             }
-      }
+
+            Console.ReadLine();
+        }
+
+        private static void CrearUsuario ( string Nombre , List<INotificacion> NotificacionesUsuario )
+        {
+            Usuario usuario = new Usuario(Nombre);
+            Console.WriteLine($"Usuario {Nombre} creado");
+
+            foreach ( var notificacion in NotificacionesUsuario )
+            {
+                usuario.AddNotificacion(notificacion);
+                usuario.Notificaciones.Last().enviar("Alerta");
+            }
+
+            BaseUsuarios.Add(usuario);
+            Console.WriteLine("------------");
+        }
+    }
 }

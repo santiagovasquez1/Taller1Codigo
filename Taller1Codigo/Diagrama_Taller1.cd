@@ -1,61 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Taller1Codigo.Cuentas.CuentaCorreo" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="5.25" Width="1.5" />
+  <Class Name="Taller1Codigo.Cuentas.NotificacionCorreo" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cuentas\CuentaCorreo.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cuentas\NotificacionCorreo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.262" />
   </Class>
-  <Class Name="Taller1Codigo.Cuentas.CuentaFacebook" BaseTypeListCollapsed="true">
-    <Position X="4.25" Y="5.25" Width="1.5" />
+  <Class Name="Taller1Codigo.Cuentas.NotificacionFacebook" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cuentas\CuentaFacebook.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cuentas\NotificacionFacebook.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.1" />
   </Class>
-  <Class Name="Taller1Codigo.Cuentas.CuentaSMS" BaseTypeListCollapsed="true">
-    <Position X="2.5" Y="5.25" Width="1.5" />
+  <Class Name="Taller1Codigo.Cuentas.NotificacionSMS" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cuentas\CuentaSMS.cs</FileName>
+      <HashCode>AAAAACAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cuentas\NotificacionSMS.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Taller1Codigo.FabricaCuentas.FabricaCuentasFacebook" HideInheritanceLine="true">
-    <Position X="6.25" Y="1.75" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FabricaCuentas\FabricaCuentasFacebook.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CuentaFacebooks" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Taller1Codigo.FabricaCuentas.FabricaCuentasSMS" HideInheritanceLine="true">
-    <Position X="0.75" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FabricaCuentas\FabricaCuentasSMS.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CuentaSMSS" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Taller1Codigo.FabricaCuentas.FabricaCuentasCorreo" HideInheritanceLine="true">
-    <Position X="3.5" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FabricaCuentas\FabricaCuentasCorreo.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CuentasCorreos" />
-    </ShowAsCollectionAssociation>
-  </Class>
   <Class Name="Taller1Codigo.Aplicacion" HideInheritanceLine="true">
-    <Position X="9" Y="1" Width="1.5" />
+    <Position X="12.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAECAAAAAAAAACAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Aplicacion.cs</FileName>
@@ -64,8 +34,36 @@
       <Property Name="MiNotificador" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Taller1Codigo.Notificador" HideInheritanceLine="true">
-    <Position X="10.25" Y="4" Width="1.5" />
+  <Class Name="Taller1Codigo.Program">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAgAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="aplicacion" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="BaseUsuarios" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Taller1Codigo.Usuario">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAgAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Notificaciones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Taller1Codigo.Notificador">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <AssociationLine Name="Cuentas" Type="Taller1Codigo.Cuentas.INotificacion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.391" Y="0.039" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Notificador.cs</FileName>
@@ -74,21 +72,11 @@
       <Property Name="Cuentas" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Taller1Codigo.Program">
-    <Position X="12.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="aplicacion" />
-    </ShowAsAssociation>
-  </Class>
-  <Interface Name="Taller1Codigo.Cuentas.ICuenta">
-    <Position X="2" Y="3.75" Width="1.5" />
+  <Interface Name="Taller1Codigo.Cuentas.INotificacion">
+    <Position X="2.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cuentas\ICuenta.cs</FileName>
+      <FileName>Cuentas\INotificacion.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
