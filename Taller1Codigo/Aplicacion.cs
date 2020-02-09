@@ -1,27 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Taller1Codigo.Cuentas;
 
 namespace Taller1Codigo
 {
-      public class Aplicacion
-      {
-            public Notificador MiNotificador { get; set; }
-            public List<INotificacion> Cuentas { get; set; }
+    public class Aplicacion
+    {
+        public Usuario User { get; set; }
+        public List<INotificacion> Notificaciones { get; set; }
 
-            public Aplicacion(List<INotificacion> pcuentas)
-            {
-                  Cuentas = pcuentas;
-                  SetNotificador(Cuentas);
-            }
+        public Aplicacion ( Usuario usuario , List<INotificacion> notificacions )
+        {
+            User = usuario;
+            Notificaciones = notificacions;
+            SetNotificador(Notificaciones);
+        }
 
-            public void SetNotificador(List<INotificacion> cuentas)
+        private void SetNotificador ( List<INotificacion> pNotificaciones )
+        {
+            foreach ( var notificacion in pNotificaciones )
             {
-                  MiNotificador = new Notificador(cuentas);
+                User.AddNotificacion(notificacion);
             }
+        }
 
-            public void EnviarMensaje()
+        public void EnviarMensaje ( string Mensaje )
+        {
+            string Prefijo = $"Enviando notificacion a {User.Nombre}";
+            Console.WriteLine(Prefijo);
+
+            foreach ( var notificacion in Notificaciones )
             {
-                  MiNotificador.enviar("Alerta");
+                notificacion.enviar(Mensaje);
             }
-      }
+        }
+    }
 }

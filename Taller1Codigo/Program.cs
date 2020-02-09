@@ -37,18 +37,22 @@ namespace Taller1Codigo
             {
                 if ( Nombre == "Santiago Vasquez" )
                 {
-                    CrearUsuario(Nombre , notificacionesSantiago);
+                    aplicacion = new Aplicacion(new Usuario(Nombre) , notificacionesSantiago);
                 }
 
                 if ( Nombre == "Luis Alberto Marin" )
                 {
-                    CrearUsuario(Nombre , notificacionesLuis);
+                    aplicacion = new Aplicacion(new Usuario(Nombre) , notificacionesLuis);
                 }
 
                 if ( Nombre == "Fabio Salazar" )
                 {
-                    CrearUsuario(Nombre , notificacionesFabio);
+                    aplicacion = new Aplicacion(new Usuario(Nombre) , notificacionesFabio);
                 }
+
+                aplicacion.EnviarMensaje("Alerta¡");
+                Console.WriteLine("----------");
+                BaseUsuarios.Add(aplicacion.User);
             }
 
             Console.ReadLine();
