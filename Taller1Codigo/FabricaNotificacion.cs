@@ -1,12 +1,20 @@
 using Taller1Codigo.Cuentas;
+using System.Text.RegularExpressions;
 
 namespace Taller1Codigo
 {
     public class FabricaNotificacion
     {
-        public static INotificacion MetodoFabrica(string parametro)
+        private static INotificacion notificacion { get; set; }
+        private static string parametro { get; set; }
+        public FabricaNotificacion(string cuenta)
         {
-            INotificacion notificacion = null;
+            parametro = cuenta;
+        }
+
+        public INotificacion MetodoFabrica()
+        {
+            notificacion = null;
 
             if (parametro.Contains("@"))
             {
@@ -18,9 +26,25 @@ namespace Taller1Codigo
             }
             else
             {
-                notificacion = new NotificacionSMS(parametro);
+                string expresion = "[0-9]";
+                string numerotl = MatchesExp(parametro, expresion);
+                if (numerotl.Length >= 10)
+                    notificacion = new NotificacionSMS(parametro);
+
             }
             return notificacion;
+        }
+
+        private static string MatchesExp(string texto, string exp)
+        {
+            var encontrado = Regex.Matches(texto, exp);
+            string temp = "";
+
+            foreach (var e in encontrado)
+            {
+                temp += e;
+            }
+            return temp;
         }
     }
 }
