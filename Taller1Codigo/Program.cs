@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Taller1Codigo.Cuentas;
 
 namespace Taller1Codigo
@@ -20,7 +18,7 @@ namespace Taller1Codigo
             "Pepito perez",
             "2562284"};
 
-            foreach (var cuentai in ListaDatos)
+            foreach ( var cuentai in ListaDatos )
             {
                 fabricaNotificacion = new FabricaNotificacion(cuentai);
                 notificacion1 = fabricaNotificacion.MetodoFabrica();
@@ -33,6 +31,5 @@ namespace Taller1Codigo
 
             //Console.ReadLine();
         }
-
     }
 }

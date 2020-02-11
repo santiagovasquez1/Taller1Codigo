@@ -16,11 +16,13 @@ namespace Taller1Codigo
         {
             notificacion = null;
 
-            if (parametro.Contains("@"))
+        public static INotificacion MetodoFabrica ( string parametro )
+        {
+            if ( parametro.Contains("@") )
             {
                 notificacion = new NotificacionCorreo(parametro);
             }
-            else if (parametro.Contains("www"))
+            else if ( parametro.Contains("www") )
             {
                 notificacion = new NotificacionFacebook(parametro);
             }
