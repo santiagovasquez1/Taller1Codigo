@@ -10,13 +10,21 @@ namespace Taller1Codigo
         {
             INotificacion notificacion1 = null;
 
-            string[] ListaDatos ={ "santivasquez1@gmail.com",
-            "www.facebook.com/luismesa",
-            "Fabio Salazar-310 4509341",
-            "Santiago Vasquez 310 450 94 12",
-            "svasquez@unal.edu.co",
-            "Pepito perez",
-            "2562284"};
+            /*
+            Se crea esta lista, para ejemplificar que la clase Fabrica notificación 
+            será la encargada de la creación de la clase notificación requerida y asi 
+            el cliente no se tiene que preocupar por establecer algun parametro en especifico
+            para el envio de la notificación.
+            */
+
+            string[] ListaDatos ={"santivasquez1@gmail.com",
+                                "fsalazarpaardo@gmail.com",
+                                "www.facebook.com/luismesa",
+                                "Fabio Salazar-310 4509341",
+                                "Santiago Vasquez 310 450 94 12",
+                                "svasquez@unal.edu.co",
+                                "Pepito perez",
+                                "2562284"};
 
             foreach ( var cuentai in ListaDatos )
             {
@@ -29,7 +37,6 @@ namespace Taller1Codigo
                 }
             }
 
-            //Console.ReadLine();
         }
     }
 }
